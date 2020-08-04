@@ -1,6 +1,5 @@
-part of '../flutter_scandit.dart';
+part of '../scandit.dart';
 
-/// Simple utilities for dealing with symbology
 class SymbologyUtils {
   static const Map<Symbology, String> _symbologyMap = {
     Symbology.EAN13_UPCA: "EAN13_UPCA",

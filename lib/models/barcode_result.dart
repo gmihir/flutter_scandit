@@ -1,4 +1,4 @@
-part of '../flutter_scandit.dart';
+part of '../scandit.dart';
 
 /// Result of scanning a barcode
 class BarcodeResult {
@@ -8,5 +8,8 @@ class BarcodeResult {
   /// symbology which was used to encode the barcode
   final Symbology symbology;
 
-  BarcodeResult({this.data, this.symbology});
+  BarcodeResult({
+    @required this.data,
+    @required this.symbology,
+  });
 }

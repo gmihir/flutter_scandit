@@ -1,4 +1,4 @@
-part of '../flutter_scandit.dart';
+part of '../scandit.dart';
 
 /// Type of encoding for the barcode
 enum Symbology {

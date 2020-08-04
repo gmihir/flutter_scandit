@@ -1,5 +1,4 @@
-part of '../flutter_scandit.dart';
-
+part of '../scandit.dart';
 
 /// Generic Flutter Scandit Barcode Exception
 class BarcodeScanException implements Exception {

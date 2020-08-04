@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-import 'flutter_scandit.dart';
+part 'models/symbology.dart';
+part 'utils/symbology_utils.dart';
+part 'models/barcode_result.dart';
+part 'models/exception.dart';
 
 typedef ResumeBarcodeScanning = Future Function();
 
@@ -79,18 +82,13 @@ class _ScanditState extends State<Scandit> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
     if (state == AppLifecycleState.paused) {
       await _channel.invokeMethod(_nativeMethodStopCameraAndCapturing);
-    }
-    if (state == AppLifecycleState.resumed) {
+    } else if (state == AppLifecycleState.resumed) {
       await _channel.invokeMethod(_nativeMethodStartCameraAndCapturing);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildScanditPlatformView();
-  }
-
-  Widget _buildScanditPlatformView() {
     Map<String, dynamic> arguments = {
       _licenseKeyField: widget.licenseKey,
       _symbologiesField:
