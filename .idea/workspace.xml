@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed7fcf85-1b96-4708-a98d-e022b6e0fe22" name="Default Changelist" comment="" />
+    <list default="true" id="ed7fcf85-1b96-4708-a98d-e022b6e0fe22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/flutter_scandit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_scandit_plugin/flutter_scandit.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_scandit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_scandit.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterScanditPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterScanditPlugin.swift" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -24,10 +38,10 @@
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state x="461" y="165" key="SettingsEditor/1920.23.1440.877/0.23.1920.1006@0.23.1920.1006" timestamp="1602524331526" />
-    <state x="604" y="267" width="712" height="518" key="find.popup" timestamp="1602524395433">
+    <state x="604" y="267" width="712" height="518" key="find.popup" timestamp="1602525262484">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
-    <state x="604" y="267" width="712" height="518" key="find.popup/1920.23.1440.877/0.23.1920.1006@0.23.1920.1006" timestamp="1602524395433" />
+    <state x="604" y="267" width="712" height="518" key="find.popup/1920.23.1440.877/0.23.1920.1006@0.23.1920.1006" timestamp="1602525262484" />
     <state x="625" y="245" width="670" height="676" key="search.everywhere.popup" timestamp="1602524727804">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>

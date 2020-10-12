@@ -224,8 +224,8 @@ class ScanditView: UIView {
         }
 
         let symbologySettings = settings.settings(for: .dataMatrix)
-        symbologySettings.enabled = true
-        symbologySettings.colorInvertedEnabled = true
+        symbologySettings.isEnabled = true
+        symbologySettings.isColorInvertedEnabled = true
         
         // Create new barcode capture mode with the settings from above.
         barcodeCapture = BarcodeCapture(context: context, settings: settings)
