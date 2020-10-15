@@ -5,15 +5,14 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-// import com.scandit.datacapture.barcode.capture.BarcodeCapture;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureListener;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureSession;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureSettings;
+import com.scandit.datacapture.barcode.capture.BarcodeCapture;
+import com.scandit.datacapture.barcode.capture.BarcodeCaptureListener;
+import com.scandit.datacapture.barcode.capture.BarcodeCaptureSession;
+import com.scandit.datacapture.barcode.capture.BarcodeCaptureSettings;
 import com.scandit.datacapture.barcode.data.Barcode;
 import com.scandit.datacapture.barcode.data.Symbology;
-// import com.scandit.datacapture.barcode.capture.SymbologySettings.*;
-// import com.scandit.datacapture.barcode.capture.BarcodeCapture.applySettings;
-import com.scandit.datacapture.barcode.capture.*;
+import com.scandit.datacapture.barcode.capture.SymbologySettings.setColorInversionEnabled;
+import com.scandit.datacapture.barcode.capture.BarcodeCapture.applySettings;
 
 import com.scandit.datacapture.core.capture.DataCaptureContext;
 import com.scandit.datacapture.core.data.FrameData;
