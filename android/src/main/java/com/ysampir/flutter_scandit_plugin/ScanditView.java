@@ -130,6 +130,10 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
             BarcodeCaptureSettings barcodeCaptureSettings = new BarcodeCaptureSettings();
             barcodeCaptureSettings.enableSymbologies(_symbologies);
 
+            SymbologySettings dataMatrixSettings = barcodeCaptureSettings.getSymbologySettings(Symbology.DATA_MATRIX);
+            dataMatrixSettings.setEnabled(true);
+            dataMatrixSettings.setColorInversionEnabled(true);
+            barcodeCaptureSettings.applySettings(barcodeCaptureSettings);
             _barcodeCapture = BarcodeCapture.forDataCaptureContext(_dataCaptureContext, barcodeCaptureSettings);
 
             // Register self as a listener to get informed whenever a new barcode got recognized.
