@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/flutter_scandit.iml" filepath="$PROJECT_DIR$/.idea/modules/flutter_scandit.iml" group="flutter_scandit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flutter_scandit_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/flutter_scandit_plugin.iml" group="flutter_scandit_plugin" />
     </modules>
   </component>
 </project>
