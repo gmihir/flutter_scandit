@@ -2,23 +2,21 @@ package com.ysampir.flutter_scandit_plugin;
 
 import android.content.Context;
 import android.view.View;
-
+import android.content.DialogInterface;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 
-// import com.scandit.datacapture.barcode.capture.BarcodeCapture;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureListener;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureSession;
-// import com.scandit.datacapture.barcode.capture.BarcodeCaptureSettings;
+import com.scandit.datacapture.barcode.capture.*;
 import com.scandit.datacapture.barcode.data.Barcode;
 import com.scandit.datacapture.barcode.data.Symbology;
-// import com.scandit.datacapture.barcode.capture.SymbologySettings;
-import com.scandit.datacapture.barcode.capture;
-
+import com.scandit.datacapture.barcode.data.SymbologyDescription;
+import com.scandit.datacapture.barcode.ui.overlay.BarcodeCaptureOverlay;
 import com.scandit.datacapture.core.capture.DataCaptureContext;
 import com.scandit.datacapture.core.data.FrameData;
 import com.scandit.datacapture.core.source.Camera;
 import com.scandit.datacapture.core.source.FrameSourceState;
 import com.scandit.datacapture.core.ui.DataCaptureView;
+import com.scandit.datacapture.core.ui.viewfinder.RectangularViewfinder;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -134,8 +132,8 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
             barcodeCaptureSettings.enableSymbologies(_symbologies);
 
             SymbologySettings dataMatrixSettings = barcodeCaptureSettings.getSymbologySettings(Symbology.DATA_MATRIX);
-            // dataMatrixSettings.setEnabled(true);
-            // dataMatrixSettings.setColorInversionEnabled(true);
+            dataMatrixSettings.setEnabled(true);
+            dataMatrixSettings.setColorInversionEnabled(true);
             // barcodeCaptureSettings.applySettings(barcodeCaptureSettings);
             _barcodeCapture = BarcodeCapture.forDataCaptureContext(_dataCaptureContext, barcodeCaptureSettings);
 
