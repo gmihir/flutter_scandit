@@ -132,8 +132,8 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
             barcodeCaptureSettings.enableSymbologies(_symbologies);
 
             SymbologySettings dataMatrixSettings = barcodeCaptureSettings.getSymbologySettings(Symbology.DATA_MATRIX);
-            dataMatrixSettings.setEnabled(true);
-            dataMatrixSettings.isColorInvertedEnabled(true);
+            // dataMatrixSettings.setEnabled(true);
+            dataMatrixSettings.setColorInvertedEnabled(true);
             // barcodeCaptureSettings.applySettings(barcodeCaptureSettings);
             _barcodeCapture = BarcodeCapture.forDataCaptureContext(_dataCaptureContext, barcodeCaptureSettings);
 
