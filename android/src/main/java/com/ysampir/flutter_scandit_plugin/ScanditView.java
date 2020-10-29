@@ -63,7 +63,7 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
 
     protected boolean hasCameraPermission() {
         return (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
-                || checkSelfPermission(CAMERA_PERMISSION) == PackageManager.PERMISSION_GRANTED);
+                || ContextCompat.checkSelfPermission(CAMERA_PERMISSION) == PackageManager.PERMISSION_GRANTED);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
