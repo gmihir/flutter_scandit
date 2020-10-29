@@ -226,4 +226,8 @@ public class ScanditView extends CameraPermissionActivity implements PlatformVie
             @NotNull BarcodeCaptureSession barcodeCaptureSession,
             @NotNull FrameData frameData) {
     }
+
+    @Override
+    public void onCameraPermissionGranted() {
+    }
 }
