@@ -5,12 +5,9 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import android.Manifest;
-import android.annotation.TargetApi;
+import androidx.core.content.ContextCompat;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.scandit.datacapture.barcode.capture.*;
 import com.scandit.datacapture.barcode.data.Barcode;
@@ -47,9 +44,6 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
     private Camera _camera;
     private DataCaptureView _dataCaptureView;
 
-    private static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
-    private boolean permissionDeniedOnce = false;
-
     ScanditView(Context context, BinaryMessenger messenger, int id, Object args) {
         _context = context;
         _methodChannel = new MethodChannel(messenger, PlatformChannelConstants.CHANNEL_NAME);
@@ -60,46 +54,6 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
             initializeAndStartBarcodeScanning();
         }
     }
-
-    protected boolean hasCameraPermission() {
-        return (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
-                || ContextCompat.checkSelfPermission(CAMERA_PERMISSION) == PackageManager.PERMISSION_GRANTED);
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    protected void requestCameraPermission() {
-        // For Android M and onwards we need to request the camera permission from the user.
-        if (!hasCameraPermission()) {
-            // The user already denied the permission once, we don't ask twice.
-            if (!permissionDeniedOnce) {
-                requestPermissions(new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
-            }
-
-        } else {
-            // We already have the permission or don't need it.
-            onCameraPermissionGranted();
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(
-            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == CAMERA_PERMISSION_REQUEST) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                permissionDeniedOnce = false;
-                if (!paused) {
-                    // Only call the function if not paused - camera should not be used otherwise.
-                    onCameraPermissionGranted();
-                }
-            } else {
-                // The user denied the permission - we are not going to ask again.
-                permissionDeniedOnce = true;
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
@@ -157,6 +111,13 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
         } else {
             handleError(PlatformChannelConstants.ERROR_NO_LICENSE);
             return false;
+        }
+    }
+
+    public boolean requestCameraAccessIfNecessary() {
+        String[] array = {Manifest.permission.CAMERA};
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA != PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(this,array,100);
         }
     }
 
@@ -230,9 +191,6 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
     }
 
     private void startBarcodeCapturing() {
-        if(!hasCameraPermission()) {
-            requestCameraPermission();
-        }
         _barcodeCapture.setEnabled(true);
     }
 
