@@ -54,18 +54,18 @@ public abstract class CameraPermissionActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.M)
     protected void requestCameraPermission() {
         // For Android M and onwards we need to request the camera permission from the user.
-        if (!hasCameraPermission()) {
+        // if (!hasCameraPermission()) {
             // The user already denied the permission once, we don't ask twice.
             // if (!permissionDeniedOnce) {
             //     // It's clear why the camera is required. We don't need to give a detailed reason.
             //     requestPermissions(new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
             // }
             requestPermissions(new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
-        } 
-        else {
-            // We already have the permission or don't need it.
-            onCameraPermissionGranted();
-        }
+        // } 
+        // else {
+        //     // We already have the permission or don't need it.
+        //     onCameraPermissionGranted();
+        // }
     }
 
     @Override
