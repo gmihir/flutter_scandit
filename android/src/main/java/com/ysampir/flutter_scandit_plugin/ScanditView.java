@@ -173,6 +173,9 @@ public class ScanditView extends CameraPermissionActivity implements PlatformVie
     private void startCameraAndCapturing() {
         // Switch camera on to start streaming frames.
         // The camera is started asynchronously and will take some time to completely turn on.
+        if(!hasCameraPermission()) {
+            requestCameraPermission();
+        }
         _barcodeCapture.setEnabled(true);
         _camera.switchToDesiredState(FrameSourceState.ON, null);
     }
