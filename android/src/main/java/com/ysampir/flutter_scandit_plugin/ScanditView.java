@@ -116,8 +116,8 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
 
     public boolean requestCameraAccessIfNecessary() {
         String[] array = {Manifest.permission.CAMERA};
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA != PackageManager.PERMISSION_GRANTED)) {
-            ActivityCompat.requestPermissions(this,array,100);
+        if(ContextCompat.checkSelfPermission(BarcodeScanActivity, Manifest.permission.CAMERA != PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(BarcodeScanActivity,array,100);
         }
     }
 
