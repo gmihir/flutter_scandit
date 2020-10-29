@@ -20,6 +20,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
 
 /**
  * An activity to request the camera permission.
@@ -47,8 +49,8 @@ public abstract class CameraPermissionActivity extends AppCompatActivity {
     }
 
     protected boolean hasCameraPermission() {
-        return (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
-                || checkSelfPermission(CAMERA_PERMISSION) == PackageManager.PERMISSION_GRANTED);
+        return (Build.VERSION.SDK_INT < Build.VERSION_CODES.M 
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -60,7 +62,7 @@ public abstract class CameraPermissionActivity extends AppCompatActivity {
             //     // It's clear why the camera is required. We don't need to give a detailed reason.
             //     requestPermissions(new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
             // }
-            requestPermissions(new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
+            ActivityCompat.requestPermissions(this, new String[] { CAMERA_PERMISSION }, CAMERA_PERMISSION_REQUEST);
         // } 
         // else {
         //     // We already have the permission or don't need it.
