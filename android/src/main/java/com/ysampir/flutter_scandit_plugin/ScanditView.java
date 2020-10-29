@@ -30,7 +30,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 
-public class ScanditView implements PlatformView, MethodChannel.MethodCallHandler, BarcodeCaptureListener {
+public class ScanditView extends CameraPermissionActivity implements PlatformView, MethodChannel.MethodCallHandler, BarcodeCaptureListener {
     private final MethodChannel _methodChannel;
     private final Context _context;
     private final HashSet<Symbology> _symbologies = new HashSet<>();
@@ -181,6 +181,9 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
     }
 
     private void startBarcodeCapturing() {
+        if(!hasCameraPermission()) {
+            requestCameraPermission();
+        }
         _barcodeCapture.setEnabled(true);
     }
 
