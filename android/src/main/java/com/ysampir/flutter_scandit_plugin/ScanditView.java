@@ -17,6 +17,7 @@ import com.scandit.datacapture.core.source.Camera;
 import com.scandit.datacapture.core.source.*;
 import com.scandit.datacapture.core.source.FrameSourceState;
 import com.scandit.datacapture.core.ui.DataCaptureView;
+import com.scandit.datacapture.core.ui.gesture;
 import com.scandit.datacapture.core.ui.viewfinder.RectangularViewfinder;
 
 import org.jetbrains.annotations.NotNull;
@@ -122,10 +123,8 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
             _camera = Camera.getDefaultCamera();
             if (_camera != null) {
                 CameraSettings cameraSettings = BarcodeCapture.createRecommendedCameraSettings();
-                cameraSettings.setAutoFocusOnTapEnabled(true);
-                cameraSettings.setPinchtoZoomEnabled(true);
-                // System.out.println("focus gesture strategy:");
-                // System.out.println(cameraSettings.getFocusGestureStrategy());
+                System.out.println("focus gesture strategy:");
+                System.out.println(cameraSettings.getFocusGestureStrategy());
                 _camera.applySettings(cameraSettings);
                 _dataCaptureContext.setFrameSource(_camera);
             } else {
