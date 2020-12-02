@@ -5,9 +5,6 @@ import android.view.View;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import android.content.pm.PackageManager;
-import androidx.core.app.ActivityCompat;
 
 import com.scandit.datacapture.barcode.capture.*;
 import com.scandit.datacapture.barcode.data.Barcode;
@@ -33,7 +30,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 
-public class ScanditView extends CameraPermissionActivity implements PlatformView, MethodChannel.MethodCallHandler, BarcodeCaptureListener {
+public class ScanditView implements PlatformView, MethodChannel.MethodCallHandler, BarcodeCaptureListener {
     private final MethodChannel _methodChannel;
     private final Context _context;
     private final HashSet<Symbology> _symbologies = new HashSet<>();
@@ -116,10 +113,6 @@ public class ScanditView extends CameraPermissionActivity implements PlatformVie
 
     private void initializeAndStartBarcodeScanning() {
         try {
-            // if(!hasCameraPermission()) {
-            //     requestCameraPermission();
-            // }
-            requestCameraPermission();
             _dataCaptureContext = DataCaptureContext.forLicenseKey(_licenceKey);
 
             // Use the default camera and set it as the frame source of the context.
@@ -229,9 +222,5 @@ public class ScanditView extends CameraPermissionActivity implements PlatformVie
             @NotNull BarcodeCapture barcodeCapture,
             @NotNull BarcodeCaptureSession barcodeCaptureSession,
             @NotNull FrameData frameData) {
-    }
-
-    @Override
-    public void onCameraPermissionGranted() {
     }
 }
