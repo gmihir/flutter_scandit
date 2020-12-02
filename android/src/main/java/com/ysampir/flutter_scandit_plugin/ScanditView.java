@@ -124,8 +124,7 @@ public class ScanditView implements PlatformView, MethodChannel.MethodCallHandle
                 CameraSettings cameraSettings = BarcodeCapture.createRecommendedCameraSettings();
                 cameraSettings.setShouldPreferSmoothAutoFocus(true);
                 System.out.println("prefer smooth autofocus");
-                System.out.println(BarcodeCapture.createRecommendedCameraSettings().setShouldPreferSmoothAutoFocus(true));
-                _camera.applySettings(cameraSettings);
+                _camera.applySettings(BarcodeCapture.createRecommendedCameraSettings().setShouldPreferSmoothAutoFocus(true));
                 _dataCaptureContext.setFrameSource(_camera);
             } else {
                 handleError(PlatformChannelConstants.ERROR_NO_CAMERA);
